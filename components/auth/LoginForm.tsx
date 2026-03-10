@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import FormField from "../common/FormField";
 import { LoginSchema } from "@/schemas/LoginSchema";
 import type { LoginSchemaType } from "@/schemas/LoginSchema";
+import Button from "../common/Button";
 
 const LoginForm = () => {
   const {
@@ -43,7 +44,7 @@ const LoginForm = () => {
         type="password"
         placeholder="Password"
       />
-      <button type="submit" className="bg-blue-500 text-white p-3 rounded-sm hover:bg-blue-600 mt-2">Submit</button>
+      <Button type="submit" label="Login" hoover />
     </form>
   );
 };
