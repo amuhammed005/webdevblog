@@ -5,6 +5,7 @@ import { MdEditNote } from "react-icons/md";
 import SearchInput from "./SearchInput";
 import Notifications from "./Notifications";
 import UserButton from "./UserButton";
+import Link from "next/link";
 
 const NavBar = () => {
   return (
@@ -20,6 +21,10 @@ const NavBar = () => {
             <ThemeToggle />
             <Notifications />
             <UserButton />
+            <>
+              <Link href="/login">Login</Link>
+              <Link href="/register">Register</Link>
+            </>
           </div>
         </div>
       </Container>
