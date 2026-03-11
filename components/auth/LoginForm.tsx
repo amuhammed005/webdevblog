@@ -7,7 +7,7 @@ import { LoginSchema } from "@/schemas/LoginSchema";
 import type { LoginSchemaType } from "@/schemas/LoginSchema";
 import Button from "../common/Button";
 import Heading from "../common/Heading";
-import SocialAuth from "../common/SocialAuth";
+import SocialAuth from "./SocialAuth";
 
 const LoginForm = () => {
   const {
@@ -15,8 +15,7 @@ const LoginForm = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm <LoginSchemaType>(
-  {
+  } = useForm<LoginSchemaType>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
       email: "",
@@ -27,10 +26,18 @@ const LoginForm = () => {
   const onSubmit = (data: LoginSchemaType) => {
     console.log("Login Data>>", data);
     reset();
-  }
+  };
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full max-w-[500px] mx-auto mt-8 gap-2">
-      <Heading title="Login to WEBDEV.blog" subtitle="Please login to your account." center lg />  
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col w-full max-w-[500px] mx-auto mt-8 gap-2"
+    >
+      <Heading
+        title="Login to WEBDEV.blog"
+        subtitle="Please login to your account."
+        center
+        lg
+      />
       <FormField
         id="email"
         register={register}
