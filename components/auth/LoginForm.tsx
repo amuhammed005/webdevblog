@@ -7,6 +7,7 @@ import { LoginSchema } from "@/schemas/LoginSchema";
 import type { LoginSchemaType } from "@/schemas/LoginSchema";
 import Button from "../common/Button";
 import Heading from "../common/Heading";
+import SocialAuth from "../common/SocialAuth";
 
 const LoginForm = () => {
   const {
@@ -47,6 +48,8 @@ const LoginForm = () => {
         placeholder="Password"
       />
       <Button type="submit" label="Login" hoover />
+      <div className="flex flex-col items-center justify-center my-2">Or</div>
+      <SocialAuth />
     </form>
   );
 };

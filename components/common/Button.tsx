@@ -35,6 +35,7 @@ const Button = ({
         outlined && "bg-transparent text-slate-700 dark:text-slate-300 dark:bg-transparent",
         small && "text-sm px-2 py-1 border-[1px]",
         hoover && "hover:bg-slate-600 hover:text-white dark:",
+        outlined && hoover && " hover:text-slate-100 dark:hover:bg-slate-700 dark:hover:text-slate-100", 
         className && className,
       )}
     >
