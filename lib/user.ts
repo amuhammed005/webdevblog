@@ -1,6 +1,8 @@
-export const getUserByEmail = (email: string) => {
+import { db } from "./db";
+
+export const getUserByEmail = async (email: string) => {
     try {
-        const user = prisma.user.findUnique({
+        const user = await db.user.findUnique({
             where: {
                 email,
             },

@@ -8,6 +8,7 @@ import type { RegisterSchemaType } from "@/schemas/RegisterSchema";
 import Button from "../common/Button";
 import Heading from "../common/Heading";
 import SocialAuth from "./SocialAuth";
+import { SignUp } from "@/actions/auth/register";
 
 const RegisterForm = () => {
   const {
@@ -26,7 +27,15 @@ const RegisterForm = () => {
   });
 
   const onSubmit = (data: RegisterSchemaType) => {
-    console.log("Register Data>>", data);
+    SignUp(data).then((res)=> {
+      if(res.error) {
+        console.log("Error>>", res.error);
+      } else {
+        console.log("User registered successfully. Data>>", data);
+      }
+    }).catch((err) => {
+      console.log("Error>>", err);
+    })
     reset();
   };
   return (
