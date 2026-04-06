@@ -14,20 +14,10 @@ export const SignUp = async (values: RegisterSchemaType) => {
 
   const {name, email, password} = validateFields.data;
 
-  const userExists = await getUserByEmail(email);
+  const hashedPassword = await bcryptjs.hash(password, 10);
 
-  if (userExists) {
-    return { error: "User already exists. Proceed with login." };
-  }
 
-  const hashedPassword = await bcrypt.hash(password, 10);
-
-  
-  // Here you can add your logic to create a new user in the database
-  // For example, you can use an ORM like Prisma or Mongoose to interact with your database
-
-  // Example using Prisma:
-  await db.user.create({
+  await prisma.user.create({
     data: {
       name,
       email,
